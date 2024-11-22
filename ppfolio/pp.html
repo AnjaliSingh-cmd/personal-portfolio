@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>personal portfolio</title>
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+
+<body>
+<header>
+    <nav> 
+        <div class="left">ANJALI'S PORTFOLIO</div>
+        <div class="right">
+            <ul>
+                <li> <a href="#left">HOME</a></li>
+                <li> <a href="#about">ABOUT</a></li>
+                
+                <li> <a href="#project">PROJECT</a></li>
+                <li> <a href="#contact">CONTACT ME</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<main>
+    <section class="firstSection">
+        <div class="leftSection">
+            Hi There, My name is <span class="purple">ANJALI</span>
+            <div>and I am a</div>
+            <span id="element"></span>
+        </div>
+
+        <div class="rightSection">
+            <img src="images.png" alt="">
+        </div>
+
+    </section>
+    
+    <!-- ---------about---------- -->
+    <div id="about">
+        <div class="container">
+         <div class="row">
+            <div class="about-col-1">
+                <h1 class="Sub-title">About Me</h1>
+               <p>I am Anjali Singh and i am a passionate web developer.<br>
+                I have completed my bachelor's degree and I have done one internship.
+
+        
+               </p>
+             <div class="tab-titles"> 
+             <p class="tab-links active-link">Experience</p>
+             </div>
+
+             <div class="tab-contents" >
+                <ul>
+                    <li><span>2024 </span><br>Internship at Unified Mentor</li>
+                    <li><span>2023 </span><br>Internship at AAC </li>
+            </div>
+        </div> 
+      </div> 
+    </div>
+    </div>
+ <!-----------portfolio---------- -->
+   
+ <div id="project">
+ <div class="container">
+    <h1 class="sub-title">My Work</h1>
+    <div class="work-list">
+       <div class="work">
+        <img src="fit1.jpg">
+        <div class="layer">
+            <h3>Fitness Website</h3>
+            <p>This website helps you in your fitness journey.<br>
+                It can connect you to the personal trainers.
+            </p>
+        </div>
+       </div>
+
+       <div class="work">
+        <img src="weather.png">
+        <div class="layer">
+            <h3>Weather App</h3>
+            <p>This website will show you weather reports.<br>
+            
+            </p>
+        </div>
+       </div>
+
+       <div class="work">
+        <img src="music.png">
+        <div class="layer">
+            <h3>Music Player</h3>
+            <p>You can listen to your favourite music .<br>
+    
+            </p> 
+        </div>
+       </div>
+    </div>
+ </div>
+ </div>
+
+<!------------contact----------- --->
+
+<div id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="contact-left">
+                <h1 class="sub-title">Contact Me</h1>
+                <p> <i class="fa-solid fa-paper-plane"></i> ajsingh1705@gmail.com</p>
+                <p>  <i class="fa-solid fa-phone"></i> 0123456789</p>
+                <div class="social-icons">
+                    <a href="http://facebook.com/"><i class="fa-brands fa-facebook"></i></a>
+                    <a href=""><i class="fa-brands fa-twitter-square"></i></a>
+                    <a href=""><i class="bi bi-instagram"></i></a>
+                    <a href=""><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+                <a href="ResumeN.pdf" download class="btn btn2">Download Resume</a>
+            </div>
+            <div class="contact-right">
+            <form name="submit-to-google-sheet">
+                <input type="text" name="Name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                <button type="submit" class="btn btn2">Submit</button>
+
+                </form>
+                <span id="msg"></span>
+
+            </div>
+        </div>
+    </div>
+
+    </div>
+</div>
+
+</head>
+
+<script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+    <script>
+        var typed = new Typed('#element',{
+            strings: ['Web developer', '&amp; a web Designer.'],
+            typeSpeed: 50,});
+    </script>
+
+</main>
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycby_B7z26VrcR49JuwPfkHOE_yTrqzo6xrzUl4chFA98q4YZmGUbDaw1PihtaLvHtMVQ/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg=document.getElementById("msg")
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            msg.innerHTML="Message sent successfully"
+            setTimeout(function(){
+                msg.innerHTML=""
+            },5000)
+            form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+</body>
+</html>
